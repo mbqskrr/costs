@@ -9,7 +9,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PayrollController">
   <tabs>
     <Tab text="Empleados">
          <content>
@@ -17,11 +17,14 @@
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="271.0" layoutY="6.0" text="Empleados" textAlignment="CENTER" />
                   <ListView layoutX="41.0" layoutY="37.0" prefHeight="256.0" prefWidth="532.0" style="-fx-background-color: white;" />
-                  <Button layoutX="357.0" layoutY="302.0" mnemonicParsing="false" text="Seleccionar" />
+                  <Button layoutX="300.0" layoutY="302.0" mnemonicParsing="false" text="Seleccionar" />
+                  <Button layoutX="386.0" layoutY="302.0" mnemonicParsing="false" text="Guardar" />
+                  <Button layoutX="454.0" layoutY="302.0" mnemonicParsing="false" text="Editar" />
+                  <Button layoutX="512.0" layoutY="302.0" mnemonicParsing="false" text="Eliminar" />
                </children>
             </Pane>
          </content></Tab>
-    <Tab text="Untitled Tab 2">
+    <Tab text="Nomina">
          <content>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
