@@ -10,6 +10,16 @@ import java.util.ArrayList;
 
 public class Company {
 	
+	public static final double PCT_CAJAS_COMPENSACION = 0.04;
+	public static final double PCT_ICBF = 0.03;
+	public static final double PCT_SENA = 0.02;
+	public static final double PCT_PRIMA_SERVICIOS = 0.0833;
+	public static final double PCT_CESANTIAS = 0.0833;
+	public static final double PCT_INTERESES_CESANTIAS = 0.12;
+	public static final double PCT_VACACIONES = 0.0417;
+	public static final double PCT_SALUD = 0.085;
+	public static final double PCT_PENSION = 0.12;
+	public static final double PCT_SEGURIDAD_SOCICAL = 0.00522;
 	public final static String PATH = ".\\\\data\\\\employees.txt";
 	private String name;
 	private String nit;

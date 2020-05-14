@@ -1,7 +1,10 @@
 package model;
 
 public class Employee {
-	public static final int SMMLV = 980657;
+	public static final int SMMLV = 887803;
+	public static final int AUX_TRANSPORTE = 102854;
+	public static final double PCT_SALUD = 0.04;
+	public static final double PCT_PENSION = 0.04;
 	private String name;
 	private int salary;
 	private String id;
