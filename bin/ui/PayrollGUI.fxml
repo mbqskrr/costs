@@ -35,7 +35,7 @@
                   <Button fx:id="btnSelect" layoutX="300.0" layoutY="302.0" mnemonicParsing="false" text="Seleccionar" />
                   <Button fx:id="btnSave" layoutX="386.0" layoutY="302.0" mnemonicParsing="false" text="Guardar" />
                   <Button fx:id="btnEdit" layoutX="454.0" layoutY="302.0" mnemonicParsing="false" text="Editar" />
-                  <Button fx:id="btnDelete" layoutX="512.0" layoutY="302.0" mnemonicParsing="false" text="Eliminar" />
+                  <Button fx:id="btnDelete" layoutX="512.0" layoutY="302.0" mnemonicParsing="false" onAction="#delete" text="Eliminar" />
                   <ScrollPane layoutX="12.0" layoutY="36.0" prefHeight="253.0" prefWidth="571.0">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">

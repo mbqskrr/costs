@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Company {
 	
-	public static final double PCT_CAJAS_COMPENSACION = 0.04;
+	public static final double PCT_CAJA_COMPENSACION = 0.04;
 	public static final double PCT_ICBF = 0.03;
 	public static final double PCT_SENA = 0.02;
 	public static final double PCT_PRIMA_SERVICIOS = 0.0833;
@@ -68,7 +68,8 @@ public class Company {
 			String charge = parts[3];
 			String dependency = parts[4];
 			String doa = parts[5];
-			Employee e = new Employee(name, salary, id, charge, dependency, doa);
+			boolean state = Boolean.parseBoolean(parts[6]);
+			Employee e = new Employee(name, salary, id, charge, dependency, doa, state);
 			employeeArray.add(e);
 			//line = br.readLine();
 		}
@@ -77,10 +78,10 @@ public class Company {
 	}
 	
 	public void exportReport() throws FileNotFoundException{
-		String msg = "";
-		for (int i = 0; i < employeeArray.size()-1; i++) {
+		String msg = "Nombre;Salario;ID;Cargo;Dependencia;Fecha de admision;Estado\n";
+		for (int i = 0; i < employeeArray.size(); i++) {
 			Employee current = employeeArray.get(i);
-			msg+=current.getName()+";"+current.getSalary()+";"+current.getId()+";"+current.getCharge()+";"+current.getDependency()+";"+current.getDateOfAdmission()+"\n";
+			msg+=current.getName()+";"+current.getSalary()+";"+current.getId()+";"+current.getCharge()+";"+current.getDependency()+";"+current.getDateOfAdmission()+";"+current.getState()+"\n";
 		}
 		PrintWriter pw = new PrintWriter(new File(PATH));
 		pw.print(msg);

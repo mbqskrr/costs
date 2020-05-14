@@ -1,5 +1,6 @@
 package ui;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javafx.collections.FXCollections;
@@ -118,10 +119,27 @@ public class PayrollController {
 		tableView.setItems(getEmployees());
 	}
 	
+	@FXML
+    void delete(ActionEvent event) {
+		ObservableList<Employee> selected, all;
+		all = tableView.getItems();
+		selected = tableView.getSelectionModel().getSelectedItems();
+		selected.forEach(all::remove);
+		((Employee) selected).setState(false);
+		try {
+			c.exportReport();
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
+    }
+	
 	public ObservableList<Employee> getEmployees(){
 		ObservableList<Employee> emp = FXCollections.observableArrayList();
 		for (int i = 0; i < c.getEmployeeArray().size(); i++) {
-			emp.add(c.getEmployeeArray().get(i));
+			if (c.getEmployeeArray().get(i).getState()) {
+				emp.add(c.getEmployeeArray().get(i));
+
+			}
 		}
 		return emp;
 		

@@ -11,14 +11,16 @@ public class Employee {
 	private String charge;
 	private String dependency;
 	private String dateOfAdmission;
+	private boolean state;
 	
-	public Employee(String name, int salary, String id, String charge, String dependency, String dateOfAdmission) {
+	public Employee(String name, int salary, String id, String charge, String dependency, String dateOfAdmission, boolean state) {
 		this.name = name;
 		this.salary = salary;
 		this.id = id;
 		this.charge = charge;
 		this.dependency = dependency;
 		this.dateOfAdmission = dateOfAdmission;
+		this.state = state;
 	}
 
 	public String getName() {
@@ -69,8 +71,12 @@ public class Employee {
 		this.dateOfAdmission = dateOfAdmission;
 	}
 
-	public static int getSmmlv() {
-		return SMMLV;
+	public boolean getState() {
+		return state;
+	}
+
+	public void setState(boolean state) {
+		this.state = state;
 	}
 	
 }

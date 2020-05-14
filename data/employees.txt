@@ -1,5 +1,5 @@
-Nombre;Salario;ID;Cargo;Dependencia;Fecha de admision
-Juana Quintero;980657;3180;Contadora;Contabilidad;22/7/2010
-Juan Reyes;980657;6749;Supervisor;Sistemas;20/7/2013
-Nicolas Colmenares;1961314;4428;Secretario;Sistemas;2/5/2020
-Fernanda Quintero;1961314;2538;Tester;Sistemas;12/5/2020
+Nombre;Salario;ID;Cargo;Dependencia;Fecha de admision;Estado
+Juana Quintero;980657;3180;Contadora;Contabilidad;22/7/2010;true
+Juan Reyes;980657;6749;Supervisor;Sistemas;20/7/2013;false
+Nicolas Colmenares;1961314;4428;Secretario;Sistemas;2/5/2020;false
+Fernanda Quintero;1961314;2538;Tester;Sistemas;17/7/2017;true
