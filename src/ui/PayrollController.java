@@ -13,6 +13,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import model.Company;
 import model.Employee;
 
@@ -97,6 +98,7 @@ public class PayrollController {
 
 	public void initialize() {
 		c = new Company();
+		//System.out.println(c.getEmployeeArray().get(0)+" no hay error");
 	}
 
 	@FXML
@@ -112,16 +114,26 @@ public class PayrollController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		configureTable();
 		tableView.setItems(getEmployees());
-		System.out.println(c.getEmployeeArray().get(0));
 	}
 	
 	public ObservableList<Employee> getEmployees(){
 		ObservableList<Employee> emp = FXCollections.observableArrayList();
-		for (int i = 0; i < c.getEmployeeArray().size()-1; i++) {
+		for (int i = 0; i < c.getEmployeeArray().size(); i++) {
 			emp.add(c.getEmployeeArray().get(i));
 		}
 		return emp;
+		
+	}
+	
+	private void configureTable() {
+		nameColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("name"));
+		salaryColumn.setCellValueFactory(new PropertyValueFactory<Employee, Integer>("salary"));
+		idColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("id"));
+		chargeColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("charge"));
+		depencyColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("dependency"));
+		doaColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("dateOfAdmission"));
 	}
 
 }

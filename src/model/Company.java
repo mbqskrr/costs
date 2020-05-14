@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Company {
 	
-	public final static String PATH = "data/employees.txt";
+	public final static String PATH = ".\\\\data\\\\employees.txt";
 	private String name;
 	private String nit;
 	private ArrayList<Employee> employeeArray;
@@ -22,7 +22,7 @@ public class Company {
 	}
 	
 	public Company() {
-		
+		employeeArray = new ArrayList<Employee>();
 	}
 	
 	public String getName() {
@@ -45,16 +45,12 @@ public class Company {
 		return employeeArray;
 	}
 
-	public void setEmployeeArray(ArrayList<Employee> employeeArray) {
-		this.employeeArray = employeeArray;
-	}
-
 	public void importReport(String sep) throws IOException {
 		File f = new File(PATH);
 		FileReader fr = new FileReader(f);
 		BufferedReader br = new BufferedReader(fr);
 		String line = br.readLine();
-		while (line!=null) {
+		while ((line = br.readLine())!=null) {
 			String[] parts = line.split(sep);
 			String name = parts[0];
 			int salary = Integer.parseInt(parts[1]);
@@ -64,11 +60,10 @@ public class Company {
 			String doa = parts[5];
 			Employee e = new Employee(name, salary, id, charge, dependency, doa);
 			employeeArray.add(e);
-			System.out.println(employeeArray.get(0)+" no hay error");
-			line = br.readLine();
+			//line = br.readLine();
 		}
-		fr.close();
 		br.close();
+		fr.close();
 	}
 	
 	public void exportReport() throws FileNotFoundException{
