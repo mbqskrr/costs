@@ -41,7 +41,7 @@
                   <TextField layoutX="491.0" layoutY="69.0" prefHeight="26.0" prefWidth="95.0" />
                   <Label layoutX="74.0" layoutY="197.0" text="Cuenta" />
                   <Label layoutX="286.0" layoutY="197.0" text="Cobro" />
-                  <Label layoutX="448.0" layoutY="197.0" text="Devnego" />
+                  <Label layoutX="448.0" layoutY="197.0" text="Devengo" />
                   <TextField layoutX="18.0" layoutY="232.0" />
                   <TextField layoutX="228.0" layoutY="232.0" />
                   <TextField layoutX="421.0" layoutY="232.0" />
