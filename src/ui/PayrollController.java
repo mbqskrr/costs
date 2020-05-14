@@ -36,9 +36,6 @@ public class PayrollController {
 	private Button btnSelect;
 
 	@FXML
-	private Button btnSave;
-
-	@FXML
 	private Button btnEdit;
 
 	@FXML
@@ -125,7 +122,9 @@ public class PayrollController {
 		all = tableView.getItems();
 		selected = tableView.getSelectionModel().getSelectedItems();
 		selected.forEach(all::remove);
-		((Employee) selected).setState(false);
+		Employee e = (Employee) selected;
+		e.setState(false);
+		c.modify(e);
 		try {
 			c.exportReport();
 		} catch (FileNotFoundException e1) {
@@ -135,10 +134,15 @@ public class PayrollController {
 	
 	public ObservableList<Employee> getEmployees(){
 		ObservableList<Employee> emp = FXCollections.observableArrayList();
-		for (int i = 0; i < c.getEmployeeArray().size(); i++) {
+		/*for (int i = 0; i < c.getEmployeeArray().size(); i++) {
 			if (c.getEmployeeArray().get(i).getState()) {
 				emp.add(c.getEmployeeArray().get(i));
 
+			}
+		}*/
+		for (Employee employee : c.getIdMap().values()) {
+			if (employee.getState()) {
+				emp.add(employee);
 			}
 		}
 		return emp;

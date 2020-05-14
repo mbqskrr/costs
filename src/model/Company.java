@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Company {
 	
@@ -23,16 +25,22 @@ public class Company {
 	public final static String PATH = ".\\\\data\\\\employees.txt";
 	private String name;
 	private String nit;
-	private ArrayList<Employee> employeeArray;
+	//private ArrayList<Employee> employeeArray;
+	private HashMap<String, Employee> idMap;
+	private HashMap<Employee, Employee> empMap;
 	
 	public Company(String name, String nit) {
 		this.name = name;
 		this.nit = nit;
-		employeeArray = new ArrayList<Employee>();
+		//employeeArray = new ArrayList<Employee>();
+		idMap = new HashMap<String, Employee>();
+		empMap = new HashMap<Employee, Employee>();
 	}
 	
 	public Company() {
-		employeeArray = new ArrayList<Employee>();
+		//employeeArray = new ArrayList<Employee>();
+		idMap = new HashMap<String, Employee>();
+		empMap = new HashMap<Employee, Employee>();
 	}
 	
 	public String getName() {
@@ -51,8 +59,16 @@ public class Company {
 		this.nit = nit;
 	}
 	
-	public ArrayList<Employee> getEmployeeArray() {
+	/*public ArrayList<Employee> getEmployeeArray() {
 		return employeeArray;
+	}*/
+	
+	public HashMap<String, Employee> getIdMap() {
+		return idMap;
+	}
+
+	public HashMap<Employee, Employee> getEmpMap() {
+		return empMap;
 	}
 
 	public void importReport(String sep) throws IOException {
@@ -70,24 +86,45 @@ public class Company {
 			String doa = parts[5];
 			boolean state = Boolean.parseBoolean(parts[6]);
 			Employee e = new Employee(name, salary, id, charge, dependency, doa, state);
-			employeeArray.add(e);
+			idMap.put(e.getName(), e);
+			empMap.put(e, e);
+			//employeeArray.add(e);
 			//line = br.readLine();
 		}
 		br.close();
 		fr.close();
 	}
-	
+
 	public void exportReport() throws FileNotFoundException{
 		String msg = "Nombre;Salario;ID;Cargo;Dependencia;Fecha de admision;Estado\n";
-		for (int i = 0; i < employeeArray.size(); i++) {
+		/*for (int i = 0; i < employeeArray.size(); i++) {
 			Employee current = employeeArray.get(i);
 			msg+=current.getName()+";"+current.getSalary()+";"+current.getId()+";"+current.getCharge()+";"+current.getDependency()+";"+current.getDateOfAdmission()+";"+current.getState()+"\n";
+		}*/
+		for (Employee e : idMap.values()) {
+			msg+=e.getName()+";"+e.getSalary()+";"+e.getId()+";"+e.getCharge()+";"+e.getDependency()+";"+e.getDateOfAdmission()+";"+e.getState()+"\n";
 		}
 		PrintWriter pw = new PrintWriter(new File(PATH));
 		pw.print(msg);
 		pw.close();
 	}
 	
+	public void modify(Employee emp) {
+		Employee objEmp = search(emp);
+		if (objEmp!=null) {
+			idMap.remove(emp.getId(), emp);
+		}
+		
+	}
 	
+	public Employee search(Employee e) {
+		Employee emp = null;
+		for (Employee employee : idMap.values()) {
+			if (employee.getId().equals(e.getId())) {
+				emp = employee;
+			}
+		}
+		return emp;
+	}
 	
 }
