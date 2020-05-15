@@ -130,7 +130,7 @@ public class PayrollController {
 		lblCompanyName.setText(c.getName());
 		lblNIT.setText(c.getNit());
 		tabEmployee.setDisable(false);
-		tabPayroll.setDisable(false);
+		//tabPayroll.setDisable(false);
 		tabProvisions.setDisable(false);
 		tabCompany.setDisable(true);
 		try {
@@ -168,18 +168,37 @@ public class PayrollController {
 
 	@FXML
 	void invoiceScreen(ActionEvent event) throws IOException {
-		if (jtComission.getText()!=null&&jtDays.getText()!=null&&jtEveningH.getText()!=null&&jtMorningH.getText()!=null&&jtSundayE.getText()!=null&&jtSundayM.getText()!=null) {
-			try {
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InvoiceGUI.fxml"));
-				Parent root1 = (Parent) fxmlLoader.load();
-				Stage stage = new Stage();
-				stage.setScene(new Scene(root1));
-				stage.show();
-				InvoiceController ic = fxmlLoader.getController();
-				ic.initialize(c.getIdMap().get(txtEmployee.getText()), c);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		// if (jtComission.getText() != null && jtDays.getText() != null &&
+		// jtEveningH.getText() != null
+		// && jtMorningH.getText() != null && jtSundayE.getText() != null &&
+		// jtSundayM.getText() != null) {
+
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InvoiceGUI.fxml"));
+			Parent root1 = (Parent) fxmlLoader.load();
+			InvoiceController ic =fxmlLoader.getController();
+			Employee e = c.getIdMap().get(txtEmployee.getText());
+			//System.out.println(e);
+			e.setWorkedDays(Integer.parseInt(jtDays.getText()));
+			e.setCommissions(Integer.parseInt(jtComission.getText()));
+			e.setMorningHours(Integer.parseInt(jtMorningH.getText()));
+			e.setEveningHours(Integer.parseInt(jtEveningH.getText()));
+			e.setSundayMHours(Integer.parseInt(jtSundayM.getText()));
+			e.setSundayEHours(Integer.parseInt(jtSundayE.getText()));
+			//System.out.println(e);
+			System.out.println(Integer.parseInt(jtDays.getText()));
+			//System.out.println(Integer.parseInt(jtComission.getText()));
+			System.out.println(Integer.parseInt(jtMorningH.getText()));
+			System.out.println(Integer.parseInt(jtEveningH.getText()));
+			System.out.println(Integer.parseInt(jtSundayM.getText()));
+			//System.out.println(Integer.parseInt(jtSundayE.getText()));
+			System.out.println(e);
+			ic.function(e, c);
+			Stage stage = new Stage();
+			stage.setScene(new Scene(root1));
+			stage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 	}
@@ -187,19 +206,8 @@ public class PayrollController {
 	@FXML
 	void select(MouseEvent event) {
 		String id = tableView.getSelectionModel().getSelectedItem().getId();
-		/*String name = tableView.getSelectionModel().getSelectedItem().getName();
-		int salary = tableView.getSelectionModel().getSelectedItem().getSalary();
-		String charge = tableView.getSelectionModel().getSelectedItem().getCharge();
-		String dependency = tableView.getSelectionModel().getSelectedItem().getDependency();
-		String dateOfAdmission = tableView.getSelectionModel().getSelectedItem().getDateOfAdmission();
-		boolean state = false;
-		Employee e = new Employee(name, salary, id, charge, dependency, dateOfAdmission, state);
-		iv.setEmployee(e);
-		iv.setCompany(new Company(lblCompanyName.getText(), lblNIT.getText()));*/
 		txtEmployee.setText(id);
-		//Employee e = c.getIdMap().get(id);
-		//iv.setEmployee(c.getIdMap().get(id));
-		
+		tabPayroll.setDisable(false);
 	}
 
 	/*

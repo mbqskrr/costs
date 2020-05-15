@@ -145,5 +145,13 @@ public class Employee {
 	public void setSundayEHours(int sundayEHours) {
 		this.sundayEHours = sundayEHours;
 	}
+
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + ", salary=" + salary + ", id=" + id + ", charge=" + charge + ", dependency="
+				+ dependency + ", dateOfAdmission=" + dateOfAdmission + ", state=" + state + "]";
+	}
+	
+	
 	
 }

@@ -85,7 +85,7 @@ public class Company {
 			String doa = parts[5];
 			boolean state = Boolean.parseBoolean(parts[6]);
 			Employee e = new Employee(name, salary, id, charge, dependency, doa, state);
-			idMap.put(e.getName(), e);
+			idMap.put(e.getId(), e);
 			empMap.put(e, e);
 			//employeeArray.add(e);
 			//line = br.readLine();

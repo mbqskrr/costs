@@ -1,20 +1,23 @@
 package ui;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import model.Company;
 import model.Employee;
 import model.Invoice;
 
-public class InvoiceController {
+public class InvoiceController implements Initializable{
 
 	/*
 	 * @FXML private Label lblCompany;
 	 */
 
 	@FXML
-	private TextField txtCompany;
+	private Label lblCompany;
 
 	@FXML
 	private Label lblNIT;
@@ -65,14 +68,34 @@ public class InvoiceController {
 	private Label lblBasic;
 
 	private Invoice iv;
-
-	public void initialize(Employee e, Company c) {
-		iv = new Invoice();
-		iv.setEmployee(e);
-		iv.setCompany(c);
-		// lblCompany.setText("Negro");
+	
+	public void function(Employee e, Company c) {
+		iv = new Invoice(e, c);
+		/*iv.setEmployee(e);
+		iv.setCompany(c);*/
+		lblEmployee.setText(e.getName());
+		lblID.setText(e.getId());
+		lblCharge.setText(e.getCharge());
+		lblDependency.setText(e.getDependency());
 		lblNIT.setText(c.getNit());
-		txtCompany.setText("Negro");
+		lblCompany.setText(c.getName());
+		lblSalary.setText("$"+e.getSalary());
+		lblAux.setText("$"+iv.auxTrans());
+		lblDays.setText(""+e.getWorkedDays());
+		lblBasic.setText("$"+iv.basic());
+		lblCom.setText("$"+e.getCommissions());
+		lblExtra.setText("$"+iv.overtime());
+		lblIncome.setText("$"+iv.totalAccrued());
+		lblDiscountH.setText("$"+iv.health());
+		lblP.setText("$"+iv.pension());
+		lblTotalDis.setText("$"+iv.totalDeducted());
+		lblPayment.setText("$"+iv.payment());
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -4,13 +4,18 @@ public class Invoice {
 	
 	private Employee employee;
 	private Company company;
-	private int salary = employee.getSalary();
-	private int voh = salary/240;
+	/*int salary = employee.getSalary();
+	int voh = salary/240;*/
 
 	/*public Invoice(PayrollController  prc) {
 		salary = employee.getSalary();
 		voh = salary/240;
 	}*/
+	
+	public Invoice(Employee e, Company c) {
+		employee = e;
+		company = c;
+	}
 	
 	public Invoice() {
 		
@@ -34,7 +39,8 @@ public class Invoice {
 	
 	public int auxTrans() {
 		int aux;
-		if (salary > Employee.SMMLV*2) {
+		//if (salary > Employee.SMMLV*2) {
+		if(employee.getSalary()>Employee.SMMLV) {
 			aux = 0;
 		} else {
 			aux = Employee.AUX_TRANSPORTE;
@@ -43,7 +49,8 @@ public class Invoice {
 	}
 	
 	public int basic() {
-		int basic = (salary/30)*employee.getWorkedDays();
+		//int basic = (salary/30)*employee.getWorkedDays();
+		int basic = (employee.getSalary()/30)*employee.getWorkedDays();
 		return basic;
 	}
 	
@@ -52,7 +59,8 @@ public class Invoice {
 	 * @return
 	 */
 	public int daytimeOvertime() {
-		int dtot = (int) (voh*Employee.PCT_MORNING*employee.getMorningHours());
+		//int dtot = (int) (voh*Employee.PCT_MORNING*employee.getMorningHours());
+		int dtot = (int) ((employee.getSalary()/240)*Employee.PCT_MORNING*employee.getMorningHours());
 		return dtot;
 	}
 	
@@ -61,7 +69,8 @@ public class Invoice {
 	 * @return
 	 */
 	public int extraNightTime() {
-		int ent = (int) (voh*Employee.PCT_EVENING*employee.getEveningHours());
+		//int ent = (int) (voh*Employee.PCT_EVENING*employee.getEveningHours());
+		int ent = (int) ((employee.getSalary()/240)*Employee.PCT_EVENING*employee.getEveningHours());
 		return ent;
 	}
 	
@@ -79,7 +88,8 @@ public class Invoice {
 	 * @return
 	 */
 	public int sundayExtraDaytime() {
-		int sed = (int) (voh*Employee.PCT_SUNDAYSM*employee.getSundayMHours());
+		//int sed = (int) (voh*Employee.PCT_SUNDAYSM*employee.getSundayMHours());
+		int sed = (int) ((employee.getSalary()/240)*Employee.PCT_SUNDAYSM*employee.getSundayMHours());
 		return sed;
 	}
 	
@@ -88,7 +98,7 @@ public class Invoice {
 	 * @return
 	 */
 	public int sundayNightExtraHour() {
-		int sneh = (int) (voh*Employee.PCT_SUNDAYSE*employee.getSundayMHours());
+		int sneh = (int) ((employee.getSalary()/240)*Employee.PCT_SUNDAYSE*employee.getSundayMHours());
 		return sneh;
 	}
 
@@ -97,17 +107,19 @@ public class Invoice {
 	 * @return
 	 */
 	public int totalAccrued() {
-		int ta = (basic()+auxTrans()+overtime()+sundayExtraDaytime()+sundayNightExtraHour());
+		int ta = (basic()+auxTrans()+overtime()+sundayExtraDaytime()+sundayNightExtraHour()+employee.getCommissions());
 		return ta;
 	}
 
 	public int health() {
-		int health=(int) (salary*Employee.PCT_SALUD);
+		//int health=(int) (salary*Employee.PCT_SALUD);
+		int health=(int) (employee.getSalary()*Employee.PCT_SALUD);
 		return health;
 	}
 	
 	public int pension() {
-		int p=(int) (salary*Employee.PCT_PENSION);
+		//int p=(int) (salary*Employee.PCT_PENSION);
+		int p=(int) (employee.getSalary()*Employee.PCT_PENSION);
 		return p;
 	}
 	
