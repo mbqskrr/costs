@@ -19,6 +19,8 @@ public class Employee {
 	private int morningHours;
 	private int eveningHours;
 	private int sundayHours;
+	private int commissions;
+	private int workedDays;
 	
 	public Employee(String name, int salary, String id, String charge, String dependency, String dateOfAdmission, boolean state) {
 		this.name = name;
@@ -116,6 +118,22 @@ public class Employee {
 
 	public void setSundayHours(int sundayHours) {
 		this.sundayHours = sundayHours;
+	}
+
+	public int getCommissions() {
+		return commissions;
+	}
+
+	public void setCommissions(int commissions) {
+		this.commissions = commissions;
+	}
+
+	public int getWorkedDays() {
+		return workedDays;
+	}
+
+	public void setWorkedDays(int workedDays) {
+		this.workedDays = workedDays;
 	}
 	
 }

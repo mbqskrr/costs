@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.InvoiceController">
    <children>
       <HBox layoutX="9.0" layoutY="26.0" prefHeight="80.0" prefWidth="753.0">
          <children>
@@ -74,7 +74,9 @@
                     </rowConstraints>
                      <children>
                         <Label text="Cargo" GridPane.columnIndex="1" />
-                        <Label fx:id="lblCharge" GridPane.columnIndex="2" />
+                        <Label fx:id="lblCharge" prefHeight="17.0" prefWidth="111.0" GridPane.columnIndex="2" />
+                        <Label text="Dependencia" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="lblDependency" prefHeight="17.0" prefWidth="133.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </right>
@@ -100,6 +102,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -107,16 +110,18 @@
                            <children>
                               <Label text="Sueldo mensual" />
                               <Label text="Auxilio de transporte" GridPane.rowIndex="1" />
-                              <Label text="Comisiones" GridPane.rowIndex="3" />
+                              <Label text="Comisiones" GridPane.rowIndex="4" />
                               <Label text="Días trabajados" GridPane.rowIndex="2" />
-                              <Label text="Horas extras" GridPane.rowIndex="4" />
-                              <Label text="Total devengado" GridPane.rowIndex="5" />
+                              <Label text="Horas extras" GridPane.rowIndex="5" />
+                              <Label text="Total devengado" GridPane.rowIndex="6" />
                               <Label fx:id="lblSalary" prefHeight="17.0" prefWidth="129.0" GridPane.columnIndex="1" />
                               <Label fx:id="lblAux" prefHeight="17.0" prefWidth="134.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Label fx:id="lblDays" prefHeight="17.0" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Label fx:id="lblCom" prefHeight="17.0" prefWidth="136.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Label fx:id="lblExtra" prefHeight="17.0" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <Label fx:id="lblIncome" prefHeight="17.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label fx:id="lblCom" prefHeight="17.0" prefWidth="136.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="lblExtra" prefHeight="17.0" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label fx:id="lblIncome" prefHeight="17.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label text="Básico" GridPane.rowIndex="3" />
+                              <Label fx:id="lblBasic" prefHeight="17.0" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
                      </center>

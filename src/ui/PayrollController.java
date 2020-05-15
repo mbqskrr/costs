@@ -20,6 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import model.Company;
 import model.Employee;
 
@@ -108,12 +109,16 @@ public class PayrollController {
 
 	@FXML
 	private Button btnInvoice;
+	
+	@FXML
+	private TextField jtDays;
 
 	private Company c;
+	
+	//private InvoiceController ic;
 
 	public void initialize() {
 		c = new Company();
-		// System.out.println(c.getEmployeeArray().get(0)+" no hay error");
 	}
 
 	@FXML
@@ -170,6 +175,16 @@ public class PayrollController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@FXML
+	void select(MouseEvent event) {
+		txtEmployee.setText(tableView.getSelectionModel().getSelectedItem().getId());
+		tableView.getSelectionModel().getSelectedItem().getName();
+		tableView.getSelectionModel().getSelectedItem().getSalary();
+		tableView.getSelectionModel().getSelectedItem().getCharge();
+		tableView.getSelectionModel().getSelectedItem().getDependency();
+		
 	}
 
 	/*
