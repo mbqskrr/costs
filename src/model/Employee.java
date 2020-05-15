@@ -5,6 +5,9 @@ public class Employee {
 	public static final int AUX_TRANSPORTE = 102854;
 	public static final double PCT_SALUD = 0.04;
 	public static final double PCT_PENSION = 0.04;
+	public static final double PCT_SUNDAYS = 0.0175;
+	public static final double PCT_MORNING = 0.0125;
+	public static final double PCT_EVENING = 0.0125;
 	private String name;
 	private int salary;
 	private String id;
@@ -12,6 +15,10 @@ public class Employee {
 	private String dependency;
 	private String dateOfAdmission;
 	private boolean state;
+	private int totalextraHours;
+	private int morningHours;
+	private int eveningHours;
+	private int sundayHours;
 	
 	public Employee(String name, int salary, String id, String charge, String dependency, String dateOfAdmission, boolean state) {
 		this.name = name;
@@ -77,6 +84,38 @@ public class Employee {
 
 	public void setState(boolean state) {
 		this.state = state;
+	}
+
+	public int getTotalextraHours() {
+		return totalextraHours;
+	}
+
+	public void setTotalextraHours(int totalextraHours) {
+		this.totalextraHours = totalextraHours;
+	}
+
+	public int getMorningHours() {
+		return morningHours;
+	}
+
+	public void setMorningHours(int morningHours) {
+		this.morningHours = morningHours;
+	}
+
+	public int getEveningHours() {
+		return eveningHours;
+	}
+
+	public void setEveningHours(int eveningHours) {
+		this.eveningHours = eveningHours;
+	}
+
+	public int getSundayHours() {
+		return sundayHours;
+	}
+
+	public void setSundayHours(int sundayHours) {
+		this.sundayHours = sundayHours;
 	}
 	
 }

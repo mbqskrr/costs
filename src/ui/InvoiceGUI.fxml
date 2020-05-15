@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox layoutX="9.0" layoutY="26.0" prefHeight="80.0" prefWidth="753.0">
+         <children>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Empresa" />
+                  <Label text="NIT" GridPane.rowIndex="1" />
+                  <Label fx:id="lblCompany" prefHeight="17.0" prefWidth="94.0" GridPane.columnIndex="1" />
+                  <Label fx:id="lblNIT" prefHeight="17.0" prefWidth="94.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
+      <Separator layoutX="14.0" layoutY="108.0" prefHeight="11.0" prefWidth="744.0" />
+      <HBox layoutX="7.0" layoutY="119.0" prefHeight="100.0" prefWidth="753.0">
+         <children>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <GridPane BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Empleado" />
+                        <Label text="ID" GridPane.rowIndex="1" />
+                        <Label fx:id="lblEmployee" prefHeight="17.0" prefWidth="111.0" GridPane.columnIndex="1" />
+                        <Label fx:id="lblID" prefHeight="17.0" prefWidth="115.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+               </center>
+            </BorderPane>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <right>
+                  <GridPane BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Cargo" GridPane.columnIndex="1" />
+                        <Label fx:id="lblCharge" GridPane.columnIndex="2" />
+                     </children>
+                  </GridPane>
+               </right>
+            </BorderPane>
+         </children>
+      </HBox>
+      <Separator layoutX="9.0" layoutY="214.0" prefHeight="11.0" prefWidth="744.0" />
+      <HBox layoutX="7.0" layoutY="230.0" prefHeight="199.0" prefWidth="753.0">
+         <children>
+            <VBox prefHeight="199.0" prefWidth="258.0">
+               <children>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <Label text="Devengado" BorderPane.alignment="CENTER" />
+                     </top>
+                     <center>
+                        <GridPane BorderPane.alignment="CENTER">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Sueldo mensual" />
+                              <Label text="Auxilio de transporte" GridPane.rowIndex="1" />
+                              <Label text="Comisiones" GridPane.rowIndex="3" />
+                              <Label text="Días trabajados" GridPane.rowIndex="2" />
+                              <Label text="Horas extras" GridPane.rowIndex="4" />
+                              <Label text="Total devengado" GridPane.rowIndex="5" />
+                              <Label fx:id="lblSalary" prefHeight="17.0" prefWidth="129.0" GridPane.columnIndex="1" />
+                              <Label fx:id="lblAux" prefHeight="17.0" prefWidth="134.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="lblDays" prefHeight="17.0" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="lblCom" prefHeight="17.0" prefWidth="136.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="lblExtra" prefHeight="17.0" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="lblIncome" prefHeight="17.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                     </center>
+                  </BorderPane>
+               </children>
+            </VBox>
+            <VBox prefHeight="199.0" prefWidth="255.0">
+               <children>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <Label text="Deducciones" BorderPane.alignment="CENTER" />
+                     </top>
+                     <center>
+                        <GridPane BorderPane.alignment="CENTER">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Salud" />
+                              <Label text="Pensión" GridPane.rowIndex="1" />
+                              <Label text="Total deducido" GridPane.rowIndex="2" />
+                              <Label fx:id="lblDiscountH" prefHeight="17.0" prefWidth="134.0" GridPane.columnIndex="1" />
+                              <Label fx:id="lblP" prefHeight="17.0" prefWidth="135.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="lblTotalDis" prefHeight="17.0" prefWidth="143.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                     </center>
+                  </BorderPane>
+               </children>
+            </VBox>
+            <VBox prefHeight="199.0" prefWidth="242.0">
+               <children>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <Label text="Neto a pagar" BorderPane.alignment="CENTER" />
+                     </top>
+                     <center>
+                        <Label fx:id="lblPayment" prefHeight="17.0" prefWidth="84.0" BorderPane.alignment="CENTER" />
+                     </center>
+                  </BorderPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Label layoutX="367.0" layoutY="6.0" text="Facutra" />
+      <Button layoutX="580.0" layoutY="442.0" mnemonicParsing="false" text="Atrás" />
+      <Button layoutX="679.0" layoutY="442.0" mnemonicParsing="false" text="Imprimir" />
+   </children>
+</Pane>
