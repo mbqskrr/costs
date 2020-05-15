@@ -2,11 +2,19 @@ package ui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import model.Company;
+import model.Employee;
+import model.Invoice;
 
 public class InvoiceController {
 
+	/*
+	 * @FXML private Label lblCompany;
+	 */
+
 	@FXML
-	private Label lblCompany;
+	private TextField txtCompany;
 
 	@FXML
 	private Label lblNIT;
@@ -52,14 +60,19 @@ public class InvoiceController {
 
 	@FXML
 	private Label lblPayment;
-	
+
 	@FXML
 	private Label lblBasic;
-	
-	public void initialize() {
-		
+
+	private Invoice iv;
+
+	public void initialize(Employee e, Company c) {
+		iv = new Invoice();
+		iv.setEmployee(e);
+		iv.setCompany(c);
+		// lblCompany.setText("Negro");
+		lblNIT.setText(c.getNit());
+		txtCompany.setText("Negro");
 	}
-
-
 
 }

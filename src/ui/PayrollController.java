@@ -2,7 +2,6 @@ package ui;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-//import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,7 +11,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
@@ -84,12 +82,6 @@ public class PayrollController {
 	private TextField txtPeriod;
 
 	@FXML
-	private TextField txtCuenta;
-
-	@FXML
-	private TextField txtCobro;
-
-	@FXML
 	private TextField txtEarned;
 
 	@FXML
@@ -105,17 +97,27 @@ public class PayrollController {
 	private Label lblNIT;
 
 	@FXML
-	private ComboBox<String> cbPeriod;
-
-	@FXML
 	private Button btnInvoice;
-	
+
 	@FXML
 	private TextField jtDays;
 
+	@FXML
+	private TextField jtMorningH;
+
+	@FXML
+	private TextField jtEveningH;
+
+	@FXML
+	private TextField jtSundayM;
+
+	@FXML
+	private TextField jtComission;
+
+	@FXML
+	private TextField jtSundayE;
+
 	private Company c;
-	
-	//private InvoiceController ic;
 
 	public void initialize() {
 		c = new Company();
@@ -138,7 +140,7 @@ public class PayrollController {
 		}
 		configureTable();
 		tableView.setItems(getEmployees());
-		cbPeriod.setItems(cbItems());
+		// cbPeriod.setItems(cbItems());
 	}
 
 	@FXML
@@ -166,24 +168,37 @@ public class PayrollController {
 
 	@FXML
 	void invoiceScreen(ActionEvent event) throws IOException {
-		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InvoiceGUI.fxml"));
-			Parent root1 = (Parent) fxmlLoader.load();
-			Stage stage = new Stage();
-			stage.setScene(new Scene(root1));
-			stage.show();
-		} catch (Exception e) {
-			e.printStackTrace();
+		if (jtComission.getText()!=null&&jtDays.getText()!=null&&jtEveningH.getText()!=null&&jtMorningH.getText()!=null&&jtSundayE.getText()!=null&&jtSundayM.getText()!=null) {
+			try {
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InvoiceGUI.fxml"));
+				Parent root1 = (Parent) fxmlLoader.load();
+				Stage stage = new Stage();
+				stage.setScene(new Scene(root1));
+				stage.show();
+				InvoiceController ic = fxmlLoader.getController();
+				ic.initialize(c.getIdMap().get(txtEmployee.getText()), c);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+
 	}
 
 	@FXML
 	void select(MouseEvent event) {
-		txtEmployee.setText(tableView.getSelectionModel().getSelectedItem().getId());
-		tableView.getSelectionModel().getSelectedItem().getName();
-		tableView.getSelectionModel().getSelectedItem().getSalary();
-		tableView.getSelectionModel().getSelectedItem().getCharge();
-		tableView.getSelectionModel().getSelectedItem().getDependency();
+		String id = tableView.getSelectionModel().getSelectedItem().getId();
+		/*String name = tableView.getSelectionModel().getSelectedItem().getName();
+		int salary = tableView.getSelectionModel().getSelectedItem().getSalary();
+		String charge = tableView.getSelectionModel().getSelectedItem().getCharge();
+		String dependency = tableView.getSelectionModel().getSelectedItem().getDependency();
+		String dateOfAdmission = tableView.getSelectionModel().getSelectedItem().getDateOfAdmission();
+		boolean state = false;
+		Employee e = new Employee(name, salary, id, charge, dependency, dateOfAdmission, state);
+		iv.setEmployee(e);
+		iv.setCompany(new Company(lblCompanyName.getText(), lblNIT.getText()));*/
+		txtEmployee.setText(id);
+		//Employee e = c.getIdMap().get(id);
+		//iv.setEmployee(c.getIdMap().get(id));
 		
 	}
 
@@ -222,9 +237,9 @@ public class PayrollController {
 		doaColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("dateOfAdmission"));
 	}
 
-	private ObservableList<String> cbItems() {
-		ObservableList<String> list = FXCollections.observableArrayList("Mes", "Quincena");
-		return list;
-	}
+	/*
+	 * private ObservableList<String> cbItems() { ObservableList<String> list =
+	 * FXCollections.observableArrayList("Mes", "Quincena"); return list; }
+	 */
 
 }

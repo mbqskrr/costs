@@ -5,7 +5,8 @@ public class Employee {
 	public static final int AUX_TRANSPORTE = 102854;
 	public static final double PCT_SALUD = 0.04;
 	public static final double PCT_PENSION = 0.04;
-	public static final double PCT_SUNDAYS = 0.0175;
+	public static final double PCT_SUNDAYSM = 2;
+	public static final double PCT_SUNDAYSE = 2.50;
 	public static final double PCT_MORNING = 0.0125;
 	public static final double PCT_EVENING = 0.0125;
 	private String name;
@@ -18,7 +19,8 @@ public class Employee {
 	private int totalextraHours;
 	private int morningHours;
 	private int eveningHours;
-	private int sundayHours;
+	private int sundayMHours;
+	private int sundayEHours;
 	private int commissions;
 	private int workedDays;
 	
@@ -112,12 +114,12 @@ public class Employee {
 		this.eveningHours = eveningHours;
 	}
 
-	public int getSundayHours() {
-		return sundayHours;
+	public int getSundayMHours() {
+		return sundayMHours;
 	}
 
-	public void setSundayHours(int sundayHours) {
-		this.sundayHours = sundayHours;
+	public void setSundayMHours(int sundayMHours) {
+		this.sundayMHours = sundayMHours;
 	}
 
 	public int getCommissions() {
@@ -134,6 +136,14 @@ public class Employee {
 
 	public void setWorkedDays(int workedDays) {
 		this.workedDays = workedDays;
+	}
+
+	public int getSundayEHours() {
+		return sundayEHours;
+	}
+
+	public void setSundayEHours(int sundayEHours) {
+		this.sundayEHours = sundayEHours;
 	}
 	
 }
