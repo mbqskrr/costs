@@ -20,6 +20,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import model.Company;
 import model.Employee;
 
@@ -117,6 +119,12 @@ public class PayrollController {
 
 	@FXML
 	private TextField jtSundayE;
+	
+	@FXML
+    private Pane mainPane;
+	
+	@FXML
+    private BorderPane borderPane;
 
 	private Company c;
 
@@ -131,7 +139,7 @@ public class PayrollController {
 		lblCompanyName.setText(c.getName());
 		lblNIT.setText(c.getNit());
 		tabEmployee.setDisable(false);
-		//tabPayroll.setDisable(false);
+		tabPayroll.setDisable(false);
 		tabProvisions.setDisable(false);
 		tabCompany.setDisable(true);
 		try {
@@ -158,8 +166,11 @@ public class PayrollController {
 	}
 
 	@FXML
-	void addScreen(ActionEvent event) {
-
+	void addScreen(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Register.fxml"));
+		Parent addContactPane = fxmlLoader.load();
+		borderPane.getChildren().clear();
+		borderPane.setCenter(addContactPane);
 	}
 
 	@FXML
@@ -169,6 +180,7 @@ public class PayrollController {
 
 	@FXML
 	void invoiceScreen(ActionEvent event) throws IOException {
+<<<<<<< HEAD
 		// if (jtComission.getText() != null && jtDays.getText() != null &&
 		// jtEveningH.getText() != null
 		// && jtMorningH.getText() != null && jtSundayE.getText() != null &&
@@ -194,6 +206,20 @@ public class PayrollController {
 			stage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
+=======
+		if (jtComission.getText()!=null&&jtDays.getText()!=null&&jtEveningH.getText()!=null&&jtMorningH.getText()!=null&&jtSundayE.getText()!=null&&jtSundayM.getText()!=null) {
+			try {
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InvoiceGUI.fxml"));
+				Parent root1 = (Parent) fxmlLoader.load();
+				Stage stage = new Stage();
+				stage.setScene(new Scene(root1));
+				stage.show();
+				InvoiceController ic = fxmlLoader.getController();
+				ic.initialize(c.getIdMap().get(txtEmployee.getText()), c);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+>>>>>>> fa0c9612d6bec4b3acd1f1d1c2969df2af900f07
 		}
 
 	}
@@ -201,8 +227,19 @@ public class PayrollController {
 	@FXML
 	void select(MouseEvent event) {
 		String id = tableView.getSelectionModel().getSelectedItem().getId();
+		/*String name = tableView.getSelectionModel().getSelectedItem().getName();
+		int salary = tableView.getSelectionModel().getSelectedItem().getSalary();
+		String charge = tableView.getSelectionModel().getSelectedItem().getCharge();
+		String dependency = tableView.getSelectionModel().getSelectedItem().getDependency();
+		String dateOfAdmission = tableView.getSelectionModel().getSelectedItem().getDateOfAdmission();
+		boolean state = false;
+		Employee e = new Employee(name, salary, id, charge, dependency, dateOfAdmission, state);
+		iv.setEmployee(e);
+		iv.setCompany(new Company(lblCompanyName.getText(), lblNIT.getText()));*/
 		txtEmployee.setText(id);
-		tabPayroll.setDisable(false);
+		//Employee e = c.getIdMap().get(id);
+		//iv.setEmployee(c.getIdMap().get(id));
+		
 	}
 
 	public ObservableList<Employee> getEmployees() {
@@ -236,5 +273,6 @@ public class PayrollController {
 	 * private ObservableList<String> cbItems() { ObservableList<String> list =
 	 * FXCollections.observableArrayList("Mes", "Quincena"); return list; }
 	 */
+	
 
 }
