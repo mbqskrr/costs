@@ -2,6 +2,7 @@ package ui;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.LocalDate;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -140,7 +141,6 @@ public class PayrollController {
 		lblCompanyName.setText(c.getName());
 		lblNIT.setText(c.getNit());
 		tabEmployee.setDisable(false);
-		tabPayroll.setDisable(false);
 		tabProvisions.setDisable(false);
 		tabCompany.setDisable(true);
 		try {
@@ -190,6 +190,7 @@ public class PayrollController {
 
 	@FXML
 	void invoiceScreen(ActionEvent event) throws IOException {
+<<<<<<< HEAD
 		if (jtComission.getText()!=null&&jtDays.getText()!=null&&jtEveningH.getText()!=null&&jtMorningH.getText()!=null&&jtSundayE.getText()!=null&&jtSundayM.getText()!=null) {
 			try {
 				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InvoiceGUI.fxml"));
@@ -202,6 +203,32 @@ public class PayrollController {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+=======
+		// if (jtComission.getText() != null && jtDays.getText() != null &&
+		// jtEveningH.getText() != null
+		// && jtMorningH.getText() != null && jtSundayE.getText() != null &&
+		// jtSundayM.getText() != null) {
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InvoiceGUI.fxml"));
+			Parent root1 = (Parent) fxmlLoader.load();
+			InvoiceController ic = fxmlLoader.getController();
+			Employee e = c.getIdMap().get(txtEmployee.getText());
+			// System.out.println(e);
+			e.setWorkedDays(Integer.parseInt(jtDays.getText()));
+			e.setCommissions(Integer.parseInt(jtComission.getText()));
+			e.setMorningHours(Integer.parseInt(jtMorningH.getText()));
+			e.setEveningHours(Integer.parseInt(jtEveningH.getText()));
+			e.setSundayMHours(Integer.parseInt(jtSundayM.getText()));
+			e.setSundayEHours(Integer.parseInt(jtSundayE.getText()));
+			LocalDate d = jDate.getValue();
+			d.toString();
+			ic.function(e, c);
+			Stage stage = new Stage();
+			stage.setScene(new Scene(root1));
+			stage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+>>>>>>> 585e0a49274362166a9688911a703a68ec587fe4
 		}
 
 	}
@@ -209,28 +236,15 @@ public class PayrollController {
 	@FXML
 	void select(MouseEvent event) {
 		String id = tableView.getSelectionModel().getSelectedItem().getId();
-		/*String name = tableView.getSelectionModel().getSelectedItem().getName();
-		int salary = tableView.getSelectionModel().getSelectedItem().getSalary();
-		String charge = tableView.getSelectionModel().getSelectedItem().getCharge();
-		String dependency = tableView.getSelectionModel().getSelectedItem().getDependency();
-		String dateOfAdmission = tableView.getSelectionModel().getSelectedItem().getDateOfAdmission();
-		boolean state = false;
-		Employee e = new Employee(name, salary, id, charge, dependency, dateOfAdmission, state);
-		iv.setEmployee(e);
-		iv.setCompany(new Company(lblCompanyName.getText(), lblNIT.getText()));*/
 		txtEmployee.setText(id);
+<<<<<<< HEAD
 		//Employee e = c.getIdMap().get(id);
 		//iv.setEmployee(c.getIdMap().get(id));
 
+=======
+		tabPayroll.setDisable(false);
+>>>>>>> 585e0a49274362166a9688911a703a68ec587fe4
 	}
-
-	/*
-	 * @Override public void start(Stage primaryStage) { try { Parent root =
-	 * FXMLLoader.load(getClass().getResource("InvoiceGUI.fxml"));
-	 * primaryStage.setTitle("Factura"); primaryStage.setScene(new Scene(root));
-	 * primaryStage.setResizable(true); primaryStage.show(); } catch (Exception e) {
-	 * e.getMessage(); } }
-	 */
 
 	public ObservableList<Employee> getEmployees() {
 		ObservableList<Employee> emp = FXCollections.observableArrayList();
@@ -263,6 +277,9 @@ public class PayrollController {
 	 * private ObservableList<String> cbItems() { ObservableList<String> list =
 	 * FXCollections.observableArrayList("Mes", "Quincena"); return list; }
 	 */
+<<<<<<< HEAD
 
+=======
+>>>>>>> 585e0a49274362166a9688911a703a68ec587fe4
 
 }

@@ -40,7 +40,7 @@ public class Invoice {
 	public int auxTrans() {
 		int aux;
 		//if (salary > Employee.SMMLV*2) {
-		if(employee.getSalary()>Employee.SMMLV) {
+		if(employee.getSalary()>Employee.SMMLV*2) {
 			aux = 0;
 		} else {
 			aux = Employee.AUX_TRANSPORTE;
@@ -79,7 +79,7 @@ public class Invoice {
 	 * @return
 	 */
 	public int overtime() {
-		int ot = extraNightTime()+daytimeOvertime();
+		int ot = extraNightTime()+daytimeOvertime()+sundayExtraDaytime()+sundayNightExtraHour();
 		return ot;
 	}
 	
@@ -113,13 +113,13 @@ public class Invoice {
 
 	public int health() {
 		//int health=(int) (salary*Employee.PCT_SALUD);
-		int health=(int) (employee.getSalary()*Employee.PCT_SALUD);
+		int health=(int) (totalAccrued()*Employee.PCT_SALUD);
 		return health;
 	}
 	
 	public int pension() {
 		//int p=(int) (salary*Employee.PCT_PENSION);
-		int p=(int) (employee.getSalary()*Employee.PCT_PENSION);
+		int p=(int) (totalAccrued()*Employee.PCT_PENSION);
 		return p;
 	}
 	
