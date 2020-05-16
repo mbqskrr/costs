@@ -26,10 +26,27 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Empresa" />
-                  <Label text="NIT" GridPane.rowIndex="1" />
+                  <Label text="Empresa:" />
+                  <Label text="NIT:" GridPane.rowIndex="1" />
                   <Label fx:id="lblNIT" prefHeight="17.0" prefWidth="94.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label fx:id="lblCompany" prefHeight="17.0" prefWidth="117.0" GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Fecha:" GridPane.columnIndex="2" />
+                  <Label fx:id="lblDate" prefHeight="17.0" prefWidth="123.0" GridPane.columnIndex="3" />
                </children>
             </GridPane>
          </children>
@@ -50,8 +67,8 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Empleado" />
-                        <Label text="ID" GridPane.rowIndex="1" />
+                        <Label text="Empleado:" />
+                        <Label text="ID:" GridPane.rowIndex="1" />
                         <Label fx:id="lblEmployee" prefHeight="17.0" prefWidth="111.0" GridPane.columnIndex="1" />
                         <Label fx:id="lblID" prefHeight="17.0" prefWidth="115.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
@@ -72,9 +89,9 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Cargo" GridPane.columnIndex="1" />
+                        <Label text="Cargo:" GridPane.columnIndex="1" />
                         <Label fx:id="lblCharge" prefHeight="17.0" prefWidth="111.0" GridPane.columnIndex="2" />
-                        <Label text="Dependencia" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Dependencia:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label fx:id="lblDependency" prefHeight="17.0" prefWidth="133.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
@@ -107,19 +124,19 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Sueldo mensual" />
-                              <Label text="Auxilio de transporte" GridPane.rowIndex="1" />
-                              <Label text="Comisiones" GridPane.rowIndex="4" />
-                              <Label text="Días trabajados" GridPane.rowIndex="2" />
-                              <Label text="Horas extras" GridPane.rowIndex="5" />
-                              <Label text="Total devengado" GridPane.rowIndex="6" />
+                              <Label text="Sueldo mensual:" />
+                              <Label text="Auxilio de transporte:" GridPane.rowIndex="1" />
+                              <Label text="Comisiones:" GridPane.rowIndex="4" />
+                              <Label text="Días trabajados:" GridPane.rowIndex="2" />
+                              <Label text="Horas extras:" GridPane.rowIndex="5" />
+                              <Label text="Total devengado:" GridPane.rowIndex="6" />
                               <Label fx:id="lblSalary" prefHeight="17.0" prefWidth="129.0" GridPane.columnIndex="1" />
                               <Label fx:id="lblAux" prefHeight="17.0" prefWidth="134.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Label fx:id="lblDays" prefHeight="17.0" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Label fx:id="lblCom" prefHeight="17.0" prefWidth="136.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                               <Label fx:id="lblExtra" prefHeight="17.0" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                               <Label fx:id="lblIncome" prefHeight="17.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                              <Label text="Básico" GridPane.rowIndex="3" />
+                              <Label text="Básico:" GridPane.rowIndex="3" />
                               <Label fx:id="lblBasic" prefHeight="17.0" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
@@ -145,9 +162,9 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Salud" />
-                              <Label text="Pensión" GridPane.rowIndex="1" />
-                              <Label text="Total deducido" GridPane.rowIndex="2" />
+                              <Label text="Salud:" />
+                              <Label text="Pensión:" GridPane.rowIndex="1" />
+                              <Label text="Total deducido:" GridPane.rowIndex="2" />
                               <Label fx:id="lblDiscountH" prefHeight="17.0" prefWidth="134.0" GridPane.columnIndex="1" />
                               <Label fx:id="lblP" prefHeight="17.0" prefWidth="135.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Label fx:id="lblTotalDis" prefHeight="17.0" prefWidth="143.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
