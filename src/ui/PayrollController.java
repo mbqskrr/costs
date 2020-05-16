@@ -190,7 +190,7 @@ public class PayrollController {
 
 	@FXML
 	void invoiceScreen(ActionEvent event) throws IOException {
-<<<<<<< HEAD
+
 		if (jtComission.getText()!=null&&jtDays.getText()!=null&&jtEveningH.getText()!=null&&jtMorningH.getText()!=null&&jtSundayE.getText()!=null&&jtSundayM.getText()!=null) {
 			try {
 				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InvoiceGUI.fxml"));
@@ -203,7 +203,7 @@ public class PayrollController {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-=======
+
 		// if (jtComission.getText() != null && jtDays.getText() != null &&
 		// jtEveningH.getText() != null
 		// && jtMorningH.getText() != null && jtSundayE.getText() != null &&
@@ -228,7 +228,7 @@ public class PayrollController {
 			stage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
->>>>>>> 585e0a49274362166a9688911a703a68ec587fe4
+
 		}
 
 	}
@@ -237,13 +237,13 @@ public class PayrollController {
 	void select(MouseEvent event) {
 		String id = tableView.getSelectionModel().getSelectedItem().getId();
 		txtEmployee.setText(id);
-<<<<<<< HEAD
+
 		//Employee e = c.getIdMap().get(id);
 		//iv.setEmployee(c.getIdMap().get(id));
 
-=======
+
 		tabPayroll.setDisable(false);
->>>>>>> 585e0a49274362166a9688911a703a68ec587fe4
+
 	}
 
 	public ObservableList<Employee> getEmployees() {
@@ -264,7 +264,7 @@ public class PayrollController {
 
 	}
 
-	private void configureTable() {
+	private void configureTable(){
 		nameColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("name"));
 		salaryColumn.setCellValueFactory(new PropertyValueFactory<Employee, Integer>("salary"));
 		idColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("id"));
@@ -277,9 +277,4 @@ public class PayrollController {
 	 * private ObservableList<String> cbItems() { ObservableList<String> list =
 	 * FXCollections.observableArrayList("Mes", "Quincena"); return list; }
 	 */
-<<<<<<< HEAD
-
-=======
->>>>>>> 585e0a49274362166a9688911a703a68ec587fe4
-
 }
