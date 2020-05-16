@@ -13,6 +13,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -176,12 +178,35 @@ public class PayrollController {
 	}
 
 	@FXML
+	void addUser(ActionEvent event) throws IOException {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Information Dialog");
+		alert.setHeaderText(null);
+		alert.setContentText("Registrado exitosamente!");
+		alert.showAndWait();
+	}
+
+	@FXML
 	void modifyScreen(ActionEvent event) {
 
 	}
 
 	@FXML
 	void invoiceScreen(ActionEvent event) throws IOException {
+
+		if (jtComission.getText()!=null&&jtDays.getText()!=null&&jtEveningH.getText()!=null&&jtMorningH.getText()!=null&&jtSundayE.getText()!=null&&jtSundayM.getText()!=null) {
+			try {
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InvoiceGUI.fxml"));
+				Parent root1 = (Parent) fxmlLoader.load();
+				Stage stage = new Stage();
+				stage.setScene(new Scene(root1));
+				stage.show();
+				InvoiceController ic = fxmlLoader.getController();
+				ic.initialize(c.getIdMap().get(txtEmployee.getText()), c); //marca error
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
 		// if (jtComission.getText() != null && jtDays.getText() != null &&
 		// jtEveningH.getText() != null
 		// && jtMorningH.getText() != null && jtSundayE.getText() != null &&
@@ -206,6 +231,7 @@ public class PayrollController {
 			stage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
+
 		}
 
 	}
@@ -214,7 +240,13 @@ public class PayrollController {
 	void select(MouseEvent event) {
 		String id = tableView.getSelectionModel().getSelectedItem().getId();
 		txtEmployee.setText(id);
+
+		//Employee e = c.getIdMap().get(id);
+		//iv.setEmployee(c.getIdMap().get(id));
+
+
 		tabPayroll.setDisable(false);
+
 	}
 
 	public ObservableList<Employee> getEmployees() {
@@ -235,7 +267,7 @@ public class PayrollController {
 
 	}
 
-	private void configureTable() {
+	private void configureTable(){
 		nameColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("name"));
 		salaryColumn.setCellValueFactory(new PropertyValueFactory<Employee, Integer>("salary"));
 		idColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("id"));
@@ -305,5 +337,4 @@ public class PayrollController {
 	 * private ObservableList<String> cbItems() { ObservableList<String> list =
 	 * FXCollections.observableArrayList("Mes", "Quincena"); return list; }
 	 */
-
 }

@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PayrollController">
    <children>
       <Pane prefHeight="62.0" prefWidth="322.0">
@@ -73,7 +72,7 @@
       </Pane>
       <Pane prefHeight="68.0" prefWidth="322.0">
          <children>
-            <Button layoutX="122.0" layoutY="11.0" mnemonicParsing="false" text="Agregar" />
+            <Button layoutX="122.0" layoutY="11.0" mnemonicParsing="false" onAction="#addUser" text="Agregar" />
          </children>
       </Pane>
    </children>
