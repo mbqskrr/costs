@@ -2,6 +2,7 @@ package ui;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.LocalDate;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -185,14 +186,8 @@ public class PayrollController {
 			e.setEveningHours(Integer.parseInt(jtEveningH.getText()));
 			e.setSundayMHours(Integer.parseInt(jtSundayM.getText()));
 			e.setSundayEHours(Integer.parseInt(jtSundayE.getText()));
-			//System.out.println(e);
-			System.out.println(Integer.parseInt(jtDays.getText()));
-			//System.out.println(Integer.parseInt(jtComission.getText()));
-			System.out.println(Integer.parseInt(jtMorningH.getText()));
-			System.out.println(Integer.parseInt(jtEveningH.getText()));
-			System.out.println(Integer.parseInt(jtSundayM.getText()));
-			//System.out.println(Integer.parseInt(jtSundayE.getText()));
-			System.out.println(e);
+			LocalDate d = jDate.getValue();
+			d.toString();
 			ic.function(e, c);
 			Stage stage = new Stage();
 			stage.setScene(new Scene(root1));
@@ -209,14 +204,6 @@ public class PayrollController {
 		txtEmployee.setText(id);
 		tabPayroll.setDisable(false);
 	}
-
-	/*
-	 * @Override public void start(Stage primaryStage) { try { Parent root =
-	 * FXMLLoader.load(getClass().getResource("InvoiceGUI.fxml"));
-	 * primaryStage.setTitle("Factura"); primaryStage.setScene(new Scene(root));
-	 * primaryStage.setResizable(true); primaryStage.show(); } catch (Exception e) {
-	 * e.getMessage(); } }
-	 */
 
 	public ObservableList<Employee> getEmployees() {
 		ObservableList<Employee> emp = FXCollections.observableArrayList();

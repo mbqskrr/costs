@@ -7,8 +7,8 @@ public class Employee {
 	public static final double PCT_PENSION = 0.04;
 	public static final double PCT_SUNDAYSM = 2;
 	public static final double PCT_SUNDAYSE = 2.50;
-	public static final double PCT_MORNING = 0.0125;
-	public static final double PCT_EVENING = 0.0125;
+	public static final double PCT_MORNING =1.25;
+	public static final double PCT_EVENING = 1.75;
 	private String name;
 	private int salary;
 	private String id;
