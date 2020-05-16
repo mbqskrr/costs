@@ -198,7 +198,7 @@ public class PayrollController {
 				stage.setScene(new Scene(root1));
 				stage.show();
 				InvoiceController ic = fxmlLoader.getController();
-				ic.initialize(c.getIdMap().get(txtEmployee.getText()), c);
+				ic.initialize(c.getIdMap().get(txtEmployee.getText()), c); //marca error
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
