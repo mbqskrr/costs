@@ -66,13 +66,17 @@ public class InvoiceController implements Initializable{
 
 	@FXML
 	private Label lblBasic;
+	
+	@FXML
+	private Label lblDate;
 
 	private Invoice iv;
 	
-	public void function(Employee e, Company c) {
+	public void function(Employee e, Company c, String date) {
 		iv = new Invoice(e, c);
 		/*iv.setEmployee(e);
 		iv.setCompany(c);*/
+		lblDate.setText(date);
 		lblEmployee.setText(e.getName());
 		lblID.setText(e.getId());
 		lblCharge.setText(e.getCharge());

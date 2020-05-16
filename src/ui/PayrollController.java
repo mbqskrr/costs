@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -149,6 +151,7 @@ public class PayrollController {
 		configureTable();
 		tableView.setItems(getEmployees());
 		// cbPeriod.setItems(cbItems());
+		constraints();
 	}
 
 	@FXML
@@ -196,8 +199,8 @@ public class PayrollController {
 			e.setSundayMHours(Integer.parseInt(jtSundayM.getText()));
 			e.setSundayEHours(Integer.parseInt(jtSundayE.getText()));
 			LocalDate d = jDate.getValue();
-			d.toString();
-			ic.function(e, c);
+			String date = d.toString();
+			ic.function(e, c, date);
 			Stage stage = new Stage();
 			stage.setScene(new Scene(root1));
 			stage.show();
@@ -239,6 +242,63 @@ public class PayrollController {
 		chargeColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("charge"));
 		depencyColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("dependency"));
 		doaColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("dateOfAdmission"));
+	}
+	
+	private void constraints() {
+		jtDays.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				// TODO Auto-generated method stub
+				if (!newValue.matches("\\d*")) {
+					jtDays.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
+		jtMorningH.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				// TODO Auto-generated method stub
+				if (!newValue.matches("\\d*")) {
+					jtMorningH.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
+		jtEveningH.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				// TODO Auto-generated method stub
+				if (!newValue.matches("\\d*")) {
+					jtEveningH.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
+		jtSundayM.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				// TODO Auto-generated method stub
+				if (!newValue.matches("\\d*")) {
+					jtSundayM.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
+		jtSundayE.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				// TODO Auto-generated method stub
+				if (!newValue.matches("\\d*")) {
+					jtSundayE.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
+		jtComission.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				// TODO Auto-generated method stub
+				if (!newValue.matches("\\d*")) {
+					jtComission.setText(newValue.replaceAll("[^\\d]", ""));
+				}
+			}
+		});
 	}
 
 	/*
