@@ -10,6 +10,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -118,12 +120,12 @@ public class PayrollController {
 
 	@FXML
 	private TextField jtSundayE;
-	
+
 	@FXML
-    private Pane mainPane;
-	
+	private Pane mainPane;
+
 	@FXML
-    private BorderPane borderPane;
+	private BorderPane borderPane;
 
 	private Company c;
 
@@ -173,6 +175,15 @@ public class PayrollController {
 	}
 
 	@FXML
+	void addUser(ActionEvent event) throws IOException {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Information Dialog");
+		alert.setHeaderText(null);
+		alert.setContentText("Registrado exitosamente!");
+		alert.showAndWait();
+	}
+
+	@FXML
 	void modifyScreen(ActionEvent event) {
 
 	}
@@ -210,7 +221,7 @@ public class PayrollController {
 		txtEmployee.setText(id);
 		//Employee e = c.getIdMap().get(id);
 		//iv.setEmployee(c.getIdMap().get(id));
-		
+
 	}
 
 	/*
@@ -252,6 +263,6 @@ public class PayrollController {
 	 * private ObservableList<String> cbItems() { ObservableList<String> list =
 	 * FXCollections.observableArrayList("Mes", "Quincena"); return list; }
 	 */
-	
+
 
 }
