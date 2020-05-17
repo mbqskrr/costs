@@ -1,11 +1,18 @@
 package ui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import model.Company;
 import model.Employee;
 import model.Invoice;
@@ -69,6 +76,9 @@ public class InvoiceController implements Initializable{
 	
 	@FXML
 	private Label lblDate;
+	
+	@FXML
+    private Button btnMore;
 
 	private Invoice iv;
 	
@@ -100,6 +110,35 @@ public class InvoiceController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@FXML
+    void more(ActionEvent event) {
+		
+		try {
+			FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("ProvisionsGUI.fxml"));
+			Parent root2;
+			root2 = (Parent) fxmlLoader1.load();
+			ProvisionsController pc = fxmlLoader1.getController();
+			pc.getInfo(iv.getEmployee().getSalary(), getIncome(lblIncome.getText()), lblEmployee.getText(), lblID.getText());
+			Stage stage = new Stage();
+			stage.setScene(new Scene(root2));
+			stage.setTitle("Provisiones");
+			stage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+    }
+
+	private int getIncome(String income) {
+		int ic;
+		String temp = "";
+		for (int i = 1; i <income.length(); i++) {
+			temp+=income.charAt(i);
+		}
+		ic = Integer.parseInt(temp);
+		return ic;
 	}
 
 }

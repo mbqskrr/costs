@@ -97,8 +97,8 @@ public class PayrollController {
 	@FXML
 	private Tab tabPayroll;
 
-	@FXML
-	private Tab tabProvisions;
+	/*@FXML
+	private Tab tabProvisions;*/
 
 	@FXML
 	private Label lblNIT;
@@ -143,7 +143,7 @@ public class PayrollController {
 		lblCompanyName.setText(c.getName());
 		lblNIT.setText(c.getNit());
 		tabEmployee.setDisable(false);
-		tabProvisions.setDisable(false);
+		//tabProvisions.setDisable(false);
 		tabCompany.setDisable(true);
 		try {
 			c.importReport(";");
@@ -193,20 +193,6 @@ public class PayrollController {
 
 	@FXML
 	void invoiceScreen(ActionEvent event) throws IOException {
-
-		if (jtComission.getText()!=null&&jtDays.getText()!=null&&jtEveningH.getText()!=null&&jtMorningH.getText()!=null&&jtSundayE.getText()!=null&&jtSundayM.getText()!=null) {
-			try {
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InvoiceGUI.fxml"));
-				Parent root1 = (Parent) fxmlLoader.load();
-				Stage stage = new Stage();
-				stage.setScene(new Scene(root1));
-				stage.show();
-				InvoiceController ic = fxmlLoader.getController();
-				ic.initialize(c.getIdMap().get(txtEmployee.getText()), c); //marca error
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
 		// if (jtComission.getText() != null && jtDays.getText() != null &&
 		// jtEveningH.getText() != null
 		// && jtMorningH.getText() != null && jtSundayE.getText() != null &&
@@ -228,25 +214,18 @@ public class PayrollController {
 			ic.function(e, c, date);
 			Stage stage = new Stage();
 			stage.setScene(new Scene(root1));
+			stage.setTitle("Factura");
 			stage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
-
 		}
-
 	}
 
 	@FXML
 	void select(MouseEvent event) {
 		String id = tableView.getSelectionModel().getSelectedItem().getId();
 		txtEmployee.setText(id);
-
-		//Employee e = c.getIdMap().get(id);
-		//iv.setEmployee(c.getIdMap().get(id));
-
-
 		tabPayroll.setDisable(false);
-
 	}
 
 	public ObservableList<Employee> getEmployees() {

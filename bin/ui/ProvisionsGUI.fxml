@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="698.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="ui.ProvisionsController">
+  <tabs>
+    <Tab text="Prestaciones sociales">
+         <content>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <top>
+                  <Label text="Prestaciones sociales" BorderPane.alignment="CENTER" />
+               </top>
+               <left>
+                  <VBox prefHeight="407.0" prefWidth="275.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox prefHeight="35.0" prefWidth="275.0">
+                           <children>
+                              <Label text=" Empleado:  " />
+                              <Label fx:id="lblEmp" prefHeight="17.0" prefWidth="161.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="34.0" prefWidth="275.0">
+                           <children>
+                              <Label text=" ID:  " />
+                              <Label fx:id="lblID" prefHeight="17.0" prefWidth="112.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="31.0" prefWidth="275.0" />
+                        <HBox prefHeight="45.0" prefWidth="275.0">
+                           <children>
+                              <Label text=" Vacaciones:  " />
+                              <Label fx:id="lblVaction" prefHeight="17.0" prefWidth="118.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="275.0">
+                           <children>
+                              <Label text=" Cesantías:  " />
+                              <Label fx:id="lblLayoff" prefHeight="17.0" prefWidth="115.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="45.0" prefWidth="275.0">
+                           <children>
+                              <Label text=" Intereses cesantías:  " />
+                              <Label fx:id="lblILO" prefHeight="17.0" prefWidth="88.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="48.0" prefWidth="275.0">
+                           <children>
+                              <Label text=" Prima de servicios:  " />
+                              <Label fx:id="lblPS" prefHeight="17.0" prefWidth="98.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </left>
+            </BorderPane>
+         </content>
+    </Tab>
+    <Tab text="Seguridad social">
+         <content>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <top>
+                  <Label text="Seguridad social" BorderPane.alignment="CENTER" />
+               </top>
+               <left>
+                  <VBox prefHeight="407.0" prefWidth="236.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="236.0">
+                           <children>
+                              <Label text=" Empleado:  " />
+                              <Label fx:id="lblEmp1" prefHeight="17.0" prefWidth="137.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="47.0" prefWidth="236.0">
+                           <children>
+                              <Label text=" ID:  " />
+                              <Label fx:id="lblID1" prefHeight="17.0" prefWidth="149.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
+               </left>
+            </BorderPane>
+         </content>
+    </Tab>
+      <Tab text="Parafiscales">
+         <content>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" />
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

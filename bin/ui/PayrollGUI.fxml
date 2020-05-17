@@ -16,9 +16,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="610.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PayrollController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="610.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PayrollController">
   <tabs>
       <Tab fx:id="tabCompany" text="Empresa">
         <content>
@@ -40,7 +39,7 @@
                            <children>
                               <Label text="Empresa:" />
                               <TextField fx:id="txtCompany" GridPane.columnIndex="1" />
-                              <Label text="NIT:" GridPane.rowIndex="1" />
+                              <Label text="NIT/RUT:" GridPane.rowIndex="1" />
                               <TextField fx:id="txtNIT" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
@@ -90,33 +89,6 @@
                </children>
             </Pane>
          </content></Tab>
-      <Tab fx:id="tabProvisions" disable="true" text="Provisiones">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <VBox layoutX="178.0" layoutY="1.0" prefHeight="367.0" prefWidth="228.0">
-                     <children>
-                        <BorderPane prefHeight="99.0" prefWidth="228.0">
-                           <center>
-                              <Button mnemonicParsing="false" text="Parafiscales" BorderPane.alignment="CENTER" />
-                           </center>
-                        </BorderPane>
-                        <BorderPane prefHeight="92.0" prefWidth="228.0">
-                           <center>
-                              <Button mnemonicParsing="false" text="Seguridad social" BorderPane.alignment="CENTER" />
-                           </center>
-                        </BorderPane>
-                        <BorderPane prefHeight="82.0" prefWidth="228.0">
-                           <center>
-                              <Button mnemonicParsing="false" text="Prestaciones sociales" BorderPane.alignment="CENTER" />
-                           </center>
-                        </BorderPane>
-                     </children>
-                  </VBox>
-               </children>
-            </AnchorPane>
-        </content>
-      </Tab>
     <Tab fx:id="tabPayroll" disable="true" text="Nomina">
          <content>
             <Pane prefHeight="200.0" prefWidth="200.0">
@@ -178,7 +150,7 @@
                      <children>
                         <Label text="Fecha:" />
                         <Label text="Días:" GridPane.rowIndex="1" />
-                        <DatePicker fx:id="jDate" prefHeight="26.0" prefWidth="153.0" GridPane.columnIndex="1" />
+                        <DatePicker fx:id="jDate" editable="false" prefHeight="26.0" prefWidth="153.0" GridPane.columnIndex="1" />
                         <TextField fx:id="jtDays" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
@@ -194,7 +166,7 @@
                     </rowConstraints>
                      <children>
                         <Label text="Empresa:" />
-                        <Label text="NIT:" GridPane.rowIndex="1" />
+                        <Label text="NIT/RUT:" GridPane.rowIndex="1" />
                         <Label fx:id="lblCompanyName" prefHeight="17.0" prefWidth="161.0" GridPane.columnIndex="1" />
                         <Label fx:id="lblNIT" prefHeight="17.0" prefWidth="156.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
